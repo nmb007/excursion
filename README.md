@@ -34,22 +34,6 @@ REQUIREMENTS
 
 The minimum requirement by this project template that your Web server supports PHP 5.4.0.
 
-
-INSTALLATION
-------------
-
-### Install from an Archive File
-
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
-
-You can then access the application through the following URL:
-
-~~~
-http://localhost/excursion/web/
-~~~
-
-
 ### Install via Composer
 
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
@@ -62,11 +46,10 @@ php composer.phar global require "fxp/composer-asset-plugin:~1.0.0"
 php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
 ~~~
 
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
-
+Now you should make a virtual host which will point to /basic/web directory and then you can access
+application through the following URL
 ~~~
-http://localhost/basic/web/
+http://localhost/basic/
 ~~~
 
 
@@ -75,7 +58,8 @@ CONFIGURATION
 
 ### Database
 
-Edit the file `config/db.php` with real data, for example:
+Copy the 'config/db-default.php' file and rename the copied file to 'db.php' and then Edit database
+changes accordingly in this file, for example:
 
 ```php
 return [
