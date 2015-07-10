@@ -13,6 +13,17 @@ return [
     'modules' => [
         'gii' => 'yii\gii\Module',
     ],
+    'controllerMap' => [
+        
+        'migrate' => [
+            'class' => 'webtoucher\migrate\controllers\MigrateController',
+            // alias of modules directory
+             'modulesPath' => '@app/modules',
+            // additional aliases of migration directories
+            // 'migrationLookup' => [],
+        ],
+        
+    ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',

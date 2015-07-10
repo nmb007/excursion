@@ -4,6 +4,9 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\bootstrap\ActiveForm;
+use app\components\Login;
+
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -40,6 +43,9 @@ AppAsset::register($this);
 						<span class="icon-bar"></span>
 					</button>
 				</div>
+                                
+
+                            
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-left">
@@ -70,6 +76,17 @@ AppAsset::register($this);
 			<div class="navbar-header">
 				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
 			</div>	
+                    
+                        <div class="navbar-form navbar-right">
+                            <?php
+                            if (Yii::$app->user->isGuest) {
+                                echo Login::widget();
+                            } else {
+                                ?>
+                                <a href="/logout">Logout</a>
+                            <?php }
+                            ?>
+                        </div>
 		</div>	
 	</div>
 	<!--//header-->

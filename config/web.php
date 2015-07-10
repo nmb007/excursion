@@ -11,6 +11,10 @@ $config = [
             'class' => 'app\modules\main\Main',
             // ... other configurations for the module ...
         ],
+        'user' => [
+            'class' => 'app\modules\user\User',
+            // ... other configurations for the module ...
+        ],
         'post' => [
             'class' => 'app\modules\post\Post',
             // ... other configurations for the module ...
@@ -43,7 +47,8 @@ $config = [
                 'gallery' => 'gallery/gallery/index',
                 'testimonials' => 'testimonial/testimonial/index',
                 'blog' => 'post/blog/index',
-                'contact' => 'main/default/contact',
+                'contact' => 'user/user/contact',
+                'logout' => 'user/user/logout',
             ],
         ],
         'user' => [

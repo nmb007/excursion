@@ -2450,3 +2450,20 @@ ol.breadcrumb li a {
   width: 28%;
 }
 }
+
+.panel-body {
+    padding: 0 15px;
+}
+
+.panel-default {
+    border:none;
+}
+.panel {
+    box-shadow: none;
+    border-radius: none;
+    margin-bottom: 0;
+}
+
+#login-form .form-group .btn {
+    margin-bottom: 10px;
+}
