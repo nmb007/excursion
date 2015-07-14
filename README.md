@@ -70,7 +70,7 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 
 ```php
 defined('YII_ENV') or define('YII_ENV', 'prod');
-
+```
 
 ### Database
 
