@@ -45,6 +45,8 @@ Clone the project in your local working directory and execute the following comm
 composer update
 ```
 
+After completing the above steps/commands, you should have the vendor directory with yii core and extensions included
+
 CONFIGURATION
 -------------
 
@@ -91,8 +93,6 @@ To apply all migrations, execute the following command
 ```
 
 ### Virtual host
-
-After completing the above steps/commands, you should have the vendor directory with yii core and extensions included
 
 Now you should make a virtual host which will point to /excursion/web directory and then you can access
 application through the following URL
