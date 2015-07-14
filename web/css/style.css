@@ -2467,3 +2467,13 @@ ol.breadcrumb li a {
 #login-form .form-group .btn {
     margin-bottom: 10px;
 }
+
+.site-error {
+    margin: auto;
+    width: 1143px;
+}
+
+.user-index {
+    margin: auto;
+    width: 1143px;
+}
