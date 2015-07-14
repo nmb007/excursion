@@ -34,7 +34,9 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'DrNCQVnxm6vs1SgvHbIeVIAKuwE92mpK',
         ],
-        
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -49,6 +51,8 @@ $config = [
                 'blog' => 'post/blog/index',
                 'contact' => 'user/user/contact',
                 'logout' => 'user/user/logout',
+                'user/index' => 'user/user/index',
+                'user/create' => 'user/user/create',
             ],
         ],
         'user' => [

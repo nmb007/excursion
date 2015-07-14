@@ -19,14 +19,15 @@ return [
             'class' => 'webtoucher\migrate\controllers\MigrateController',
             // alias of modules directory
              'modulesPath' => '@app/modules',
-            // additional aliases of migration directories
-            // 'migrationLookup' => [],
         ],
         
     ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
         ],
         'log' => [
             'targets' => [
