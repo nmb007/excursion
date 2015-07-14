@@ -45,15 +45,6 @@ Clone the project in your local working directory and execute the following comm
 composer update
 ```
 
-After executing the above command you should have the vendor directory with yii core and extensions included
-
-Now you should make a virtual host which will point to /basic/web directory and then you can access
-application through the following URL
-~~~
-http://localhost/basic/
-~~~
-
-
 CONFIGURATION
 -------------
 
@@ -98,6 +89,16 @@ To apply all migrations, execute the following command
 ```php
 ./yii migrate/up
 ```
+
+### Virtual host
+
+After completing the above steps/commands, you should have the vendor directory with yii core and extensions included
+
+Now you should make a virtual host which will point to /excursion/web directory and then you can access
+application through the following URL
+~~~
+http://localhost/excursion/
+~~~
 
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
