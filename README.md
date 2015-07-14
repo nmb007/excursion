@@ -91,13 +91,13 @@ return [
 ];
 ```
 
-** Migrations **
+**Migrations**
 
 To apply all migrations, execute the following command
 
 ```php
 ./yii migrate/up
-
+```
 
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
