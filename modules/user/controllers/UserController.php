@@ -37,6 +37,15 @@ class UserController extends Controller
                     ],
                     [
                         //'controllers' => ['user'],
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['editor'],
+                        'denyCallback' => function ($rule, $action) {
+                            return $this->redirect('/',301);
+                        }
+                    ],
+                    [
+                        //'controllers' => ['user'],
                         'actions' => ['contact'],
                         'allow' => true,
                         'roles' => ['?'],
@@ -111,12 +120,13 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        $user = new User();
+        $user = new User(['scenario' => 'create']);
         $role = new Role();
 
         if ($user->load(Yii::$app->request->post()) && 
             $role->load(Yii::$app->request->post()) && User::validateMultiple([$user, $role]))
         {
+            
             $user->setPassword($user->password);
             $user->generateAuthKey();
             
