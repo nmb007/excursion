@@ -71,6 +71,7 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 ```php
 defined('YII_ENV') or define('YII_ENV', 'prod');
 
+
 ### Database
 
 Copy the 'config/db-default.php' file and rename the copied file to 'db.php' and then Edit database
