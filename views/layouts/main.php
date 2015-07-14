@@ -15,17 +15,17 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?php echo Yii::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?php echo Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!--web-font-->
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
     
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <?php echo Html::csrfMetaTags() ?>
+    <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -48,14 +48,48 @@ AppAsset::register($this);
                             
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav navbar-left">
-						<li><a href="/" class="active">Home</a></li>
-						<li><a href="/tours">Tours</a></li>
-						<li><a href="/gallery">Gallery</a></li>
-						<li><a href="/testimonials">Testimonials</a></li>
-						<li><a href="/blog">Blog</a></li>
-						<li><a href="/contact">Contact Us</a></li>
-					</ul>	
+                                    <?php
+                                    NavBar::begin([
+                                        //'brandLabel' => Yii::t('app', Yii::$app->name),
+                                        //'brandUrl' => Yii::$app->homeUrl,
+                                        'options' => [
+                                            'class' => 'nav navbar-nav navbar-left',
+                                        ],
+                                    ]);
+
+                                    // everyone can see Home page
+                                    $menuItems[] = ['label' => Yii::t('app', 'Home'), 'url' => ['/']];
+
+                                    // display Article admin page to editor+ roles
+                                    if (Yii::$app->user->can('editor')) {
+                                        $menuItems[] = ['label' => Yii::t('app', 'Posts'), 'url' => ['/post/admin']];
+                                    }
+
+                                    // display Users to admin+ roles
+                                    if (Yii::$app->user->can('admin')) {
+                                        $menuItems[] = ['label' => Yii::t('app', 'Users'), 'url' => ['/user/index']];
+                                    }
+
+                                    // display Signup and Login pages to guests of the site
+                                    if (Yii::$app->user->isGuest) {
+                                        $menuItems[] = ['label' => Yii::t('app', 'Tours'), 'url' => ['/tours']];
+                                        $menuItems[] = ['label' => Yii::t('app', 'Gallery'), 'url' => ['/gallery']];
+                                        $menuItems[] = ['label' => Yii::t('app', 'Testimonials'), 'url' => ['/testimonials']];
+                                        $menuItems[] = ['label' => Yii::t('app', 'Blog'), 'url' => ['/blog']];
+                                        $menuItems[] = ['label' => Yii::t('app', 'Contact Us'), 'url' => ['/contact']];
+                                    }
+                                    // display Logout to all logged in users
+                                    else {
+                                        
+                                    }
+
+                                    echo Nav::widget([
+                                        'options' => ['class' => 'navbar-nav navbar-right'],
+                                        'items' => $menuItems,
+                                    ]);
+
+                                    NavBar::end();
+                                    ?>
 					<div class="social-icons">
 						<ul>
 							<li><a href="#"></a></li>
@@ -83,7 +117,7 @@ AppAsset::register($this);
                                 echo Login::widget();
                             } else {
                                 ?>
-                                <a href="/logout">Logout</a>
+                                <a href="/logout"><?php echo Yii::t('app', 'Logout')?></a>
                             <?php }
                             ?>
                         </div>
@@ -91,7 +125,7 @@ AppAsset::register($this);
 	</div>
 	<!--//header-->
     
-        <?= $content ?>
+        <?php echo $content ?>
         
         <div class="footer">
 		<div class="container">
