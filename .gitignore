@@ -18,6 +18,10 @@ Thumbs.db
 # database file
 /config/db.php
 
+# environment file
+/config/environment.php
+
+
 # composer itself is not needed
 composer.phar
 

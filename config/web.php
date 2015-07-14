@@ -53,6 +53,8 @@ $config = [
                 'logout' => 'user/user/logout',
                 'user/index' => 'user/user/index',
                 'user/create' => 'user/user/create',
+                
+                '/post/admin' => 'post/post/admin',
             ],
         ],
         'user' => [
