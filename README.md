@@ -56,6 +56,21 @@ http://localhost/basic/
 CONFIGURATION
 -------------
 
+### Environment
+
+Copy the 'config/environment-default.php' file and rename the copied file to 'environment.php' and then Edit the environment
+changes accordingly in this file, for example:
+
+** For DEV environment **
+
+```php
+defined('YII_ENV') or define('YII_ENV', 'dev');
+```
+** For Prod environment **
+
+```php
+defined('YII_ENV') or define('YII_ENV', 'prod');
+
 ### Database
 
 Copy the 'config/db-default.php' file and rename the copied file to 'db.php' and then Edit database
