@@ -99,6 +99,15 @@ class UserIdentity extends ActiveRecord implements IdentityInterface
 // IMPORTANT IDENTITY HELPERS
 //------------------------------------------------------------------------------------------------//
 
+    
+    /**
+     * Generates "remember me" authentication key. 
+     */
+    public function generateAuthKey()
+    {
+        $this->auth_key = Yii::$app->security->generateRandomString();
+    }
+    
     /**
      * Validates password.
      *

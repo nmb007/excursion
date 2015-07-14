@@ -1,6 +1,7 @@
 <?php
 namespace app\models;
 
+use app\rbac\models\Role;
 use yii\behaviors\TimestampBehavior;
 use Yii;
 
@@ -9,7 +10,7 @@ use Yii;
  * Here you can implement your custom user solutions.
  * 
  * @property Role[] $role
- * @property Article[] $articles
+ * @property Post[] $posts
  */
 class User extends UserIdentity
 {
@@ -32,16 +33,16 @@ class User extends UserIdentity
     public function rules()
     {
         return [
-            [['username', 'email'], 'filter', 'filter' => 'trim'],
-            [['username', 'email', 'status'], 'required'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            [['user_name', 'email'], 'filter', 'filter' => 'trim'],
+            [['user_name', 'email', 'status'], 'required'],
+            ['user_name', 'string', 'min' => 2, 'max' => 255],
 
             // password field is required on 'create' scenario
             ['password', 'required', 'on' => 'create'],
             // use passwordStrengthRule() method to determine password strength
-            $this->passwordStrengthRule(),
+            //$this->passwordStrengthRule(),
                       
-            ['username', 'unique', 'message' => 'This username has already been taken.'],
+            ['user_name', 'unique', 'message' => 'This user_name has already been taken.'],
         ];
     }
 
@@ -87,7 +88,7 @@ class User extends UserIdentity
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'username' => Yii::t('app', 'Username'),
+            'user_name' => Yii::t('app', 'Username'),
             'password' => Yii::t('app', 'Password'),
             'status' => Yii::t('app', 'Status'),
             'created_at' => Yii::t('app', 'Created At'),
@@ -108,13 +109,13 @@ class User extends UserIdentity
     }  
 
     /**
-     * Relation with Article model.
+     * Relation with Post model.
      * 
      * @return \yii\db\ActiveQuery
      */
-    public function getArticles()
+    public function getPosts()
     {
-        return $this->hasMany(Article::className(), ['user_id' => 'id']);
+        return $this->hasMany(Post::className(), ['user_id' => 'id']);
     }
 
 //------------------------------------------------------------------------------------------------//
@@ -127,9 +128,9 @@ class User extends UserIdentity
      * @param  string $user_name
      * @return static|null
      */
-    public static function findByUsername($username)
+    public static function findByUsername($user_name)
     {
-        return static::findOne(['user_name' => $username]);
+        return static::findOne(['user_name' => $user_name]);
     }  
     
 //------------------------------------------------------------------------------------------------//
