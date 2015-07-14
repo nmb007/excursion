@@ -7,13 +7,6 @@ class m150710_094222_create_admin_user extends webtoucher\migrate\components\Mig
 {
    public function up()
     {
-        $tableOptions = null;
-
-        if ($this->db->driverName === 'mysql') 
-        {
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
-        }
-
         $this->insert('{{%user}}', [
             'id' => '1',
             'user_name' => 'admin',
