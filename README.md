@@ -39,12 +39,13 @@ The minimum requirement by this project template that your Web server supports P
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
-You can then install this project template using the following command:
+Clone the project in your local working directory and execute the following command
 
-~~~
-php composer.phar global require "fxp/composer-asset-plugin:~1.0.0"
-php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
-~~~
+```php
+composer update
+```
+
+After executing the above command you should have the vendor directory with yii core and extensions included
 
 Now you should make a virtual host which will point to /basic/web directory and then you can access
 application through the following URL
@@ -74,6 +75,9 @@ defined('YII_ENV') or define('YII_ENV', 'prod');
 
 ### Database
 
+
+Create a database with the name of your choice
+
 Copy the 'config/db-default.php' file and rename the copied file to 'db.php' and then Edit database
 changes accordingly in this file, for example:
 
@@ -86,6 +90,14 @@ return [
     'charset' => 'utf8',
 ];
 ```
+
+** Migrations **
+
+To apply all migrations, execute the following command
+
+```php
+./yii migrate/up
+
 
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
