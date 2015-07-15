@@ -30,6 +30,10 @@ $config = [
     ],
     'defaultRoute' => 'main/default/index',
     'components' => [
+        'menuComponent' => [
+            'class' => 'app\components\MenuComponent',
+ 
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'DrNCQVnxm6vs1SgvHbIeVIAKuwE92mpK',
