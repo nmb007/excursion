@@ -32,10 +32,6 @@ class MenuComponent extends Component
             $menuItems[] = ['label' => Yii::t('app', 'Blog'), 'url' => ['/blog']];
             $menuItems[] = ['label' => Yii::t('app', 'Contact Us'), 'url' => ['/contact']];
         }
-        // display Logout to all logged in users
-        else {
-            
-        }
 
         return $menuItems;
     }
