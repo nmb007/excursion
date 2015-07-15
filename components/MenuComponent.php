@@ -22,12 +22,12 @@ class MenuComponent extends Component
         // display Users to admin+ roles
         if (Yii::$app->user->can('admin')) {
             $menuItems[] = ['label' => Yii::t('app', 'Users'), 'url' => ['/user/index']];
+            $menuItems[] = ['label' => Yii::t('app', 'Gallery'), 'url' => ['/gallery/admin']];
         }
 
         // display Signup and Login pages to guests of the site
         if (Yii::$app->user->isGuest) {
             $menuItems[] = ['label' => Yii::t('app', 'Tours'), 'url' => ['/tours']];
-            $menuItems[] = ['label' => Yii::t('app', 'Gallery'), 'url' => ['/gallery']];
             $menuItems[] = ['label' => Yii::t('app', 'Testimonials'), 'url' => ['/testimonials']];
             $menuItems[] = ['label' => Yii::t('app', 'Blog'), 'url' => ['/blog']];
             $menuItems[] = ['label' => Yii::t('app', 'Contact Us'), 'url' => ['/contact']];
