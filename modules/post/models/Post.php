@@ -187,4 +187,25 @@ class Post extends ActiveRecord
 
         return $statusArray;
     }
+    
+    /**
+     * Finds the Post model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * 
+     * @param integer  $id
+     * @return Post The loaded model.
+     * 
+     * @throws NotFoundHttpException if the model cannot be found.
+     */
+    public function findModel($id)
+    {
+        if (($model = Post::findOne($id)) !== null) 
+        {
+            return $model;
+        } 
+        else 
+        {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
 }

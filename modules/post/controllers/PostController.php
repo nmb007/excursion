@@ -86,8 +86,9 @@ class PostController extends Controller
      */
     public function actionView($id)
     {
+        $model = new Post();
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model->findModel($id),
         ]);
     }
 
@@ -136,7 +137,8 @@ class PostController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $postModel = new Post();
+        $model = $postModel->findModel($id);
 
         if (Yii::$app->user->can('updatePost', ['model' => $model])) 
         {
@@ -168,7 +170,8 @@ class PostController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $postModel = new Post();
+        $postModel->findModel($id)->delete();
 
         return $this->redirect('admin');
     }
@@ -200,26 +203,5 @@ class PostController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
-    }
-
-    /**
-     * Finds the Post model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * 
-     * @param integer  $id
-     * @return Post The loaded model.
-     * 
-     * @throws NotFoundHttpException if the model cannot be found.
-     */
-    protected function findModel($id)
-    {
-        if (($model = Post::findOne($id)) !== null) 
-        {
-            return $model;
-        } 
-        else 
-        {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
     }
 }
