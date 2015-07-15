@@ -1,16 +1,7 @@
-Yii 2 Basic Project Template | Excursion
+Excursion (Travel Website) Based on Yii2
 ========================================
 
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-rapidly creating small projects.
-
-The template contains the basic features including user login/logout and a contact page.
-It includes all commonly used configurations that would allow you to focus on adding new
-features to your application.
-
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
+Excursion (Travel Website) is a project build on [Yii 2](http://www.yiiframework.com/)
 
 DIRECTORY STRUCTURE
 -------------------
@@ -44,6 +35,8 @@ Clone the project in your local working directory and execute the following comm
 ```php
 composer update
 ```
+
+After completing the above steps/commands, you should have the vendor directory with yii core and extensions included
 
 CONFIGURATION
 -------------
@@ -91,8 +84,6 @@ To apply all migrations, execute the following command
 ```
 
 ### Virtual host
-
-After completing the above steps/commands, you should have the vendor directory with yii core and extensions included
 
 Now you should make a virtual host which will point to /excursion/web directory and then you can access
 application through the following URL
