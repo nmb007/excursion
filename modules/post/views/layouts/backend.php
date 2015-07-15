@@ -57,31 +57,7 @@ AppAsset::register($this);
                                         ],
                                     ]);
 
-                                    // everyone can see Home page
-                                    $menuItems[] = ['label' => Yii::t('app', 'Home'), 'url' => ['/']];
-
-                                    // display Post admin page to editor+ roles
-                                    if (Yii::$app->user->can('editor')) {
-                                        $menuItems[] = ['label' => Yii::t('app', 'Posts'), 'url' => ['/post/admin']];
-                                    }
-
-                                    // display Users to admin+ roles
-                                    if (Yii::$app->user->can('admin')) {
-                                        $menuItems[] = ['label' => Yii::t('app', 'Users'), 'url' => ['/user/index']];
-                                    }
-
-                                    // display Signup and Login pages to guests of the site
-                                    if (Yii::$app->user->isGuest) {
-                                        $menuItems[] = ['label' => Yii::t('app', 'Tours'), 'url' => ['/tours']];
-                                        $menuItems[] = ['label' => Yii::t('app', 'Gallery'), 'url' => ['/gallery']];
-                                        $menuItems[] = ['label' => Yii::t('app', 'Testimonials'), 'url' => ['/testimonials']];
-                                        $menuItems[] = ['label' => Yii::t('app', 'Blog'), 'url' => ['/blog']];
-                                        $menuItems[] = ['label' => Yii::t('app', 'Contact Us'), 'url' => ['/contact']];
-                                    }
-                                    // display Logout to all logged in users
-                                    else {
-                                        
-                                    }
+                                    $menuItems = Yii::$app->menuComponent->getMenuItems();
 
                                     echo Nav::widget([
                                         'options' => ['class' => 'navbar-nav navbar-right'],
