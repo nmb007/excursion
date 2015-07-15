@@ -2473,7 +2473,7 @@ ol.breadcrumb li a {
     width: 1143px;
 }
 
-.user-index {
+.user-index, .posts-admin {
     margin: auto;
     width: 1143px;
 }

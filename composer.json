@@ -24,7 +24,8 @@
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-faker": "*",
-        "webtoucher/yii2-migrate": "*"
+        "webtoucher/yii2-migrate": "*",
+        "mihaildev/yii2-ckeditor": "*"
     },
     "config": {
         "process-timeout": 1800

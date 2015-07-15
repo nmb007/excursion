@@ -40,13 +40,13 @@ class CssHelper
     }
 
     /**
-     * Returns the appropriate css class based on the value of Article $status.
-     * NOTE: used in article/admin view.
+     * Returns the appropriate css class based on the value of Post $status.
+     * NOTE: used in post/admin view.
      *
-     * @param  string $status Article status.
+     * @param  string $status Post status.
      * @return string         Css class.
      */
-    public static function articleStatusCss($status)
+    public static function postStatusCss($status)
     {
         if ($status === Yii::t('app', 'Published'))
         {
@@ -59,13 +59,13 @@ class CssHelper
     }  
 
     /**
-     * Returns the appropriate css class based on the value of Article $category.
-     * NOTE: used in article/admin view.
+     * Returns the appropriate css class based on the value of Post $category.
+     * NOTE: used in post/admin view.
      *
-     * @param  string $category Article category.
+     * @param  string $category Post category.
      * @return string           Css class.
      */
-    public static function articleCategoryCss($category)
+    public static function postTypeCss($category)
     {
         if ($category === Yii::t('app', 'Economy'))
         {
