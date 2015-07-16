@@ -1,6 +1,8 @@
 <?php
 
 use yii\helpers\Html;
+
+$this->title = Yii::t('app', 'Page');
 ?>
 
 <table class="table">
