@@ -24,6 +24,7 @@ class MenuComponent extends Component
             $menuItems[] = ['label' => Yii::t('app', 'Users'), 'url' => ['/user/index']];
             $menuItems[] = ['label' => Yii::t('app', 'Gallery'), 'url' => ['/gallery/admin']];
             $menuItems[] = ['label' => Yii::t('app', 'Testimonials'), 'url' => ['/testimonials/admin']];
+            $menuItems[] = ['label' => Yii::t('app', 'Page'), 'url' => ['/page/admin']];
         }
 
         // display Signup and Login pages to guests of the site

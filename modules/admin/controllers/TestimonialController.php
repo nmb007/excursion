@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\gallery\controllers;
+namespace app\modules\admin\controllers;
 
-use app\modules\gallery\models\Gallery;
-use app\modules\gallery\models\GallerySearch;
+use app\modules\testimonial\models\Testimonial;
+use app\modules\testimonial\models\TestimonialSearch;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
@@ -12,24 +12,24 @@ use yii\web\UploadedFile;
 use Yii;
 
 
-class GalleryController extends Controller
+class TestimonialController extends Controller
 {
     public $layout = 'backend';
     
     /**
-     * Lists all Gallery models.
+     * Lists all Testimonial models.
      *
      * @return mixed
      */
     public function actionIndex()
     {
         /**
-         * How many gallerys we want to display per page.
+         * How many testimonials we want to display per page.
          * @var integer
          */
         $pageSize = 5;
 
-        $searchModel = new GallerySearch();
+        $searchModel = new TestimonialSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $pageSize);
 
         return $this->render('index', [
@@ -39,42 +39,33 @@ class GalleryController extends Controller
     }
 
     /**
-     * Displays a single Gallery model.
+     * Displays a single Testimonial model.
      * 
      * @param  integer $id
      * @return mixed
      */
     public function actionView($id)
     {
-        
-        $model = new Gallery();
-        
+        $model = new Testimonial();
         return $this->render('view', [
             'model' => $model->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new Gallery model.
+     * Creates a new Testimonial model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * 
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Gallery();
+        $model = new Testimonial();
 
-        if ($model->load(Yii::$app->request->post())) 
+        $model->user_id = Yii::$app->user->id;
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) 
         {
-            /* Gets the image instance and uploads image to the specified directory
-             * and then saves the model data */
-            
-            $image = UploadedFile::getInstance($model, 'image');   
-            
-            $image->saveAs('uploads/' . $image->baseName . '.' . $image->extension);
-            $model->image = $image->baseName . '.' . $image->extension;
-            
-            $model->save();
             
             return $this->redirect(['view', 'id' => $model->id]);
             
@@ -88,7 +79,7 @@ class GalleryController extends Controller
     }
 
     /**
-     * Updates an existing Gallery model.
+     * Updates an existing Testimonial model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * 
      * @param  integer $id
@@ -98,9 +89,9 @@ class GalleryController extends Controller
      */
     public function actionUpdate($id)
     {
-        $gallery = new Gallery();
-        $model = $gallery->findModel($id);
-
+        $testModel = new Testimonial();
+        $model = $testModel->findModel($id);
+       
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -111,7 +102,7 @@ class GalleryController extends Controller
     }
 
     /**
-     * Deletes an existing Gallery model.
+     * Deletes an existing Testimonial model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * 
      * @param  integer $id
@@ -121,26 +112,26 @@ class GalleryController extends Controller
      */
     public function actionDelete($id)
     {
-        $gallery = new Gallery();
-        $gallery->findModel($id)->delete();
+        $testModel = new Testimonial();
+        $testModel->findModel($id)->delete();
 
         return $this->redirect('admin');
     }
 
     /**
-     * Manage Gallerys.
+     * Manage Testimonials.
      * 
      * @return mixed
      */
     public function actionAdmin()
     {
         /**
-         * How many gallerys we want to display per page.
+         * How many testimonials we want to display per page.
          * @var integer
          */
         $pageSize = 5;
 
-        $searchModel = new GallerySearch();
+        $searchModel = new TestimonialSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $pageSize);
 
         return $this->render('admin', [
@@ -148,6 +139,4 @@ class GalleryController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
-    
 }

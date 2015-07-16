@@ -7,8 +7,8 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules' => [
-        'main' => [
-            'class' => 'app\modules\main\Main',
+        'page' => [
+            'class' => 'app\modules\page\Page',
             // ... other configurations for the module ...
         ],
         'user' => [
@@ -27,8 +27,12 @@ $config = [
             'class' => 'app\modules\testimonial\Testimonial',
             // ... other configurations for the module ...
         ],
+        'admin' => [
+            'class' => 'app\modules\admin\Admin',
+            // ... other configurations for the module ...
+        ],
     ],
-    'defaultRoute' => 'main/default/index',
+    'defaultRoute' => 'page/page/index',
     'components' => [
         'menuComponent' => [
             'class' => 'app\components\MenuComponent',
@@ -52,13 +56,14 @@ $config = [
                 'tours' => 'post/tours/index',
                 'blog' => 'post/blog/index',
                 'contact' => 'user/user/contact',
-                'logout' => 'user/user/logout',
-                'user/index' => 'user/user/index',
-                'user/create' => 'user/user/create',
+                'logout' => 'admin/user/logout',
+                'user/index' => 'admin/user/index',
+                'user/create' => 'admin/user/create',
                 
-                '/post/admin' => 'post/post/admin',
-                '/gallery/admin' => 'gallery/gallery/admin',
-                '/testimonials/admin' => 'testimonial/testimonial/admin',
+                '/post/admin' => 'admin/post/admin',
+                '/gallery/admin' => 'admin/gallery/admin',
+                '/testimonials/admin' => 'admin/testimonial/admin',
+                '/page/admin' => 'admin/page/admin', 
             ],
         ],
         'user' => [

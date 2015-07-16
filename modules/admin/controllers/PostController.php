@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\post\controllers;
+namespace app\modules\admin\controllers;
 
 use app\modules\post\models\Post;
 use app\modules\post\models\PostSearch;
