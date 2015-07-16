@@ -50,7 +50,6 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'tours' => 'post/tours/index',
-                'testimonials' => 'testimonial/testimonial/index',
                 'blog' => 'post/blog/index',
                 'contact' => 'user/user/contact',
                 'logout' => 'user/user/logout',
@@ -59,6 +58,7 @@ $config = [
                 
                 '/post/admin' => 'post/post/admin',
                 '/gallery/admin' => 'gallery/gallery/admin',
+                '/testimonials/admin' => 'testimonial/testimonial/admin',
             ],
         ],
         'user' => [
