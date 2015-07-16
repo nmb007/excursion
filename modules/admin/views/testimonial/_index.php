@@ -6,7 +6,7 @@ $this->title = 'Testimonials';
 ?>
 
     <p class="time"><span class="glyphicon glyphicon-time"></span> 
-        <?php echo Yii::t('app', 'Published on'); ?> : <?php echo date('j/m/Y, G:i', $model->created_at); ?></p>
+        <?php echo Yii::t('app', 'Published on'); ?> : <?php echo Yii::$app->formatter->asDate($model->created_at, 'j/m/Y, G:i'); ?></p>
 
     <br>
 
