@@ -92,7 +92,7 @@ class User extends UserIdentity
             'password' => Yii::t('app', 'Password'),
             'status' => Yii::t('app', 'Status'),
             'created_at' => Yii::t('app', 'Created At'),
-            'user_image' => Yii::t('app', 'User Photo'),
+            'image' => Yii::t('app', 'User Photo'),
             'item_name' => Yii::t('app', 'Role'),
         ];
     }

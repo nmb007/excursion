@@ -17,7 +17,7 @@ use Yii;
  * @property string  $password_hash
  * @property integer $status
  * @property integer $created_at
- * @property string  $user_image
+ * @property string  $image
  */
 class UserIdentity extends ActiveRecord implements IdentityInterface
 {

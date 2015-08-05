@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\NotFoundHttpException;
+use yii\web\MethodNotAllowedHttpException;
+use yii\web\UploadedFile;
 use Yii;
 
 class UserController extends Controller
@@ -126,6 +128,14 @@ class UserController extends Controller
         if ($user->load(Yii::$app->request->post()) && 
             $role->load(Yii::$app->request->post()) && User::validateMultiple([$user, $role]))
         {
+            
+            /* Gets the image instance and uploads image to the specified directory
+             * and then saves the model data */
+            
+            $image = UploadedFile::getInstance($user, 'image');   
+            
+            $image->saveAs('uploads/' . $image->baseName . '.' . $image->extension);
+            $user->image = $image->baseName . '.' . $image->extension;
             
             $user->setPassword($user->password);
             $user->generateAuthKey();
