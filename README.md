@@ -103,6 +103,7 @@ Could not parse version constraint <=2.1.x: Invalid version string "2.1.x"
 
 then please follow the steps below to fix this
 
+```php
 1) composer selfupdate
 2) composer clearcache
 3) Install npm
@@ -110,3 +111,4 @@ then please follow the steps below to fix this
 5) bower install 'jquery#1.9.1 - 2'
 6) composer global update
 7) composer update
+```
