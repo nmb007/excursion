@@ -94,3 +94,19 @@ http://localhost/excursion/
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
 Also check and edit the other files in the `config/` directory to customize your application.
+
+If you observe Composer error while executing 'composer update' similar to following 
+
+~~~
+Could not parse version constraint <=2.1.x: Invalid version string "2.1.x"
+~~~
+
+then please follow the steps below to fix this
+
+1) composer selfupdate
+2) composer clearcache
+3) Install npm
+4) Install bower
+5) bower install 'jquery#1.9.1 - 2'
+6) composer global update
+7) composer update

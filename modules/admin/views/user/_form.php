@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
 ?>
 <div class="user-form">
 
-    <?php $form = ActiveForm::begin(['id' => 'form-user']); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
         <?php echo $form->field($user, 'user_name') ?>
         
@@ -29,6 +29,8 @@ use yii\widgets\ActiveForm;
             <?php $roles[$item_name->name] = $item_name->name ?>
         <?php endforeach ?>
         <?php echo $form->field($role, 'item_name')->dropDownList($roles) ?>
+        
+        <?php echo $form->field($user, 'image')->fileInput(); ?>
 
     </div>
     </div>
